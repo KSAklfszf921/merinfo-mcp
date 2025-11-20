@@ -1,0 +1,55 @@
+{
+  "name": "merinfo-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Swedish company information from merinfo.se and allabolag.se",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "merinfo-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "start:streamable": "node dist/streamable-http-server.js",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "setup-db": "tsx scripts/setup-db.ts",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "merinfo",
+    "allabolag",
+    "swedish-companies",
+    "scraper",
+    "business-intelligence"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "playwright": "^1.48.2",
+    "better-sqlite3": "^11.7.0",
+    "zod": "^3.23.8",
+    "dotenv": "^16.4.7",
+    "pino": "^9.5.0",
+    "pino-pretty": "^13.0.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
+    "tsc-alias": "^1.8.10"
+  }
+}

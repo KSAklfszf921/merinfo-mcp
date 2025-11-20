@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: merinfo-mcp
+    env: node
+    region: frankfurt
+    plan: starter
+    buildCommand: npm install && npm run build && npx playwright install --with-deps chromium
+    startCommand: npm run start:streamable
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /opt/render/project/data/merinfo.db
+      - key: PLAYWRIGHT_HEADLESS
+        value: true
+      - key: PLAYWRIGHT_TIMEOUT
+        value: 30000
+      - key: RATE_LIMIT_SCRAPING_RPM
+        value: 10
+      - key: RATE_LIMIT_CLIENT_RPM
+        value: 30
+      - key: CACHE_TTL_DAYS
+        value: 30
+      - key: CACHE_STALE_DAYS
+        value: 7
+      - key: MAX_CACHE_SIZE
+        value: 10000
+      - key: LOG_LEVEL
+        value: info
+      - key: ENABLE_PERSON_DETAILS
+        value: true
+      - key: ENABLE_BACKGROUND_REFRESH
+        value: false
+
+    disk:
+      name: merinfo-data
+      mountPath: /opt/render/project/data
+      sizeGB: 10
+
+    healthCheckPath: /health
