@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "tsx": "^4.19.2",
-    "vitest": "^2.1.8",
-    "@vitest/coverage-v8": "^2.1.8",
+    "vitest": "^4.0.12",
+    "@vitest/coverage-v8": "^4.0.12",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3"
   }
