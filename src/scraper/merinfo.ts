@@ -153,7 +153,10 @@ export class MerinfoScraper {
       if (!link) return null;
 
       const href = await link.getAttribute('href');
-      return href ? `${BASE_URL}${href}` : null;
+      if (!href) return null;
+
+      // Check if href is already absolute URL
+      return href.startsWith('http') ? href : `${BASE_URL}${href}`;
     } catch (error) {
       if (error instanceof ScraperError) throw error;
       return null;
