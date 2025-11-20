@@ -24,17 +24,34 @@ export class BrowserPool {
 
     logger.info('Initializing Playwright browser...');
 
-    this.browser = await chromium.launch({
-      headless: this.headless,
-      args: [
-        '--disable-blink-features=AutomationControlled',
-        '--no-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-      ],
-    });
+    try {
+      this.browser = await chromium.launch({
+        headless: this.headless,
+        args: [
+          '--disable-blink-features=AutomationControlled',
+          '--no-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--disable-setuid-sandbox',
+          '--disable-web-security',
+        ],
+        // In Docker, explicitly use system chromium
+        executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined,
+      });
 
-    logger.info('Browser initialized');
+      logger.info('Browser initialized successfully');
+    } catch (error) {
+      logger.error(
+        {
+          error: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined,
+          headless: this.headless,
+          execPath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
+        },
+        'Failed to launch Chromium browser'
+      );
+      throw error;
+    }
   }
 
   /**
