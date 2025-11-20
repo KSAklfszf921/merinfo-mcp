@@ -349,14 +349,14 @@ This tool is for legitimate business intelligence and due diligence purposes onl
 
 ## 🆘 Support
 
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/merinfo-mcp/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/YOUR_USERNAME/merinfo-mcp/discussions)
+- **Issues:** [GitHub Issues](https://github.com/KSAklfszf921/merinfo-mcp/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/KSAklfszf921/merinfo-mcp/discussions)
 
 ## 📊 Status
 
-![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/merinfo-mcp)
-![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/merinfo-mcp)
-![License](https://img.shields.io/github/license/YOUR_USERNAME/merinfo-mcp)
+![GitHub last commit](https://img.shields.io/github/last-commit/KSAklfszf921/merinfo-mcp)
+![GitHub issues](https://img.shields.io/github/issues/KSAklfszf921/merinfo-mcp)
+![License](https://img.shields.io/github/license/KSAklfszf921/merinfo-mcp)
 
 ---
 
