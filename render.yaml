@@ -1,17 +1,17 @@
 services:
   - type: web
     name: merinfo-mcp
-    env: node
+    env: docker
     region: frankfurt
     plan: starter
-    buildCommand: npm install && npm run build && npx playwright install --with-deps chromium
-    startCommand: npm run start:streamable
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
 
     envVars:
       - key: NODE_ENV
         value: production
       - key: DATABASE_PATH
-        value: /opt/render/project/data/merinfo.db
+        value: /app/data/merinfo.db
       - key: PLAYWRIGHT_HEADLESS
         value: true
       - key: PLAYWRIGHT_TIMEOUT
@@ -35,7 +35,7 @@ services:
 
     disk:
       name: merinfo-data
-      mountPath: /opt/render/project/data
+      mountPath: /app/data
       sizeGB: 10
 
     healthCheckPath: /health
