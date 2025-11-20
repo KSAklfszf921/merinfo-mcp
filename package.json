@@ -16,8 +16,7 @@
     "test:coverage": "vitest --coverage",
     "setup-db": "tsx scripts/setup-db.ts",
     "lint": "eslint src/**/*.ts",
-    "format": "prettier --write src/**/*.ts",
-    "prepare": "npm run build"
+    "format": "prettier --write src/**/*.ts"
   },
   "keywords": [
     "mcp",
